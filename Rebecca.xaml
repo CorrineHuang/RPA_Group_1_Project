@@ -1,11 +1,11 @@
 <Activity mc:Ignorable="sap sap2010" x:Class="Rebecca" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <x:Members>
-    <x:Property Name="dt_OCBC" Type="InOutArgument(sd:DataTable)" />
+    <x:Property Name="dt_ocbc" Type="InOutArgument(sd:DataTable)" />
   </x:Members>
   <VisualBasic.Settings>
     <x:Null />
   </VisualBasic.Settings>
-  <sap:VirtualizedContainerService.HintSize>973,1310</sap:VirtualizedContainerService.HintSize>
+  <sap:VirtualizedContainerService.HintSize>559.2,1635.2</sap:VirtualizedContainerService.HintSize>
   <sap2010:WorkflowViewState.IdRef>Rebecca_1</sap2010:WorkflowViewState.IdRef>
   <TextExpression.NamespacesForImplementation>
     <sco:Collection x:TypeArguments="x:String">
@@ -103,37 +103,39 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
       <AssemblyReference>System.Data.SqlClient</AssemblyReference>
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.ViewModels</AssemblyReference>
     </sco:Collection>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Rebecca" sap:VirtualizedContainerService.HintSize="568,1441" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Rebecca" sap:VirtualizedContainerService.HintSize="569.6,1570.4" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_ExchangeRate" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_filtered" />
+    </Sequence.Variables>
     <sap:WorkflowViewStateService.ViewState>
       <scg:Dictionary x:TypeArguments="x:String, x:Object">
         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
       </scg:Dictionary>
     </sap:WorkflowViewStateService.ViewState>
-    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="506,91" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Start extracting datat from UOB!" />
-    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Daily Price - FX Rates" sap:VirtualizedContainerService.HintSize="506,1199" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="429bf0e4-406e-4776-9f7b-847810106269" Version="V2">
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="507.2,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_1" Text="Start extracting datat from OCBC!" />
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Daily Price - FX Rates" sap:VirtualizedContainerService.HintSize="507.2,1197.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="429bf0e4-406e-4776-9f7b-847810106269" Version="V2">
       <uix:NApplicationCard.Body>
         <ActivityAction x:TypeArguments="x:Object">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="472,981" sap2010:WorkflowViewState.IdRef="Sequence_2">
-            <Sequence.Variables>
-              <Variable x:TypeArguments="sd:DataTable" Name="dt_ExchangeRate" />
-              <Variable x:TypeArguments="sd:DataTable" Name="dt_filtered" />
-            </Sequence.Variables>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="473.6,980.8" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <sap:WorkflowViewStateService.ViewState>
               <scg:Dictionary x:TypeArguments="x:String, x:Object">
                 <x:Boolean x:Key="IsExpanded">True</x:Boolean>
               </scg:Dictionary>
             </sap:WorkflowViewStateService.ViewState>
-            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dt_exchangeRate]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='Currency' ReferenceName='Against SGD Currency' ReferenceIdx='0'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='1 FX' ReferenceName='Against SGD Unit' ReferenceIdx='1'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' IsDeleted='true' Name='Less than SGD 40,000.00 Bank Sell' ReferenceName='Less than SGD 40,000.00 Bank Sell' ReferenceIdx='2'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' IsDeleted='true' Name='Less than SGD 40,000.00 Bank Buy' ReferenceName='Less than SGD 40,000.00 Bank Buy' ReferenceIdx='3'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='To SGD' ReferenceName='SGD 40,000.00 to SGD 100,000.00 Bank Sell' ReferenceIdx='4'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&#x9;&lt;Column xsi:type='DataColumn' IsDeleted='true' Name='SGD 40,000.00 to SGD 100,000.00 Bank Buy' ReferenceName='SGD 40,000.00 to SGD 100,000.00 Bank Buy' ReferenceIdx='5'&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xD;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xD;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xD;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xD;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xD;&#xA;&#x9;&lt;/Column&gt;&#xD;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Against SGD Currency' attr='fulltext' /&gt;&lt;column name='Against SGD Unit' attr='fulltext' /&gt;&lt;column name='Less than SGD 40,000.00 Bank Sell' attr='fulltext' /&gt;&lt;column name='Less than SGD 40,000.00 Bank Buy' attr='fulltext' /&gt;&lt;column name='SGD 40,000.00 to SGD 100,000.00 Bank Sell' attr='fulltext' /&gt;&lt;column name='SGD 40,000.00 to SGD 100,000.00 Bank Buy' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="410,158" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="429bf0e4-406e-4776-9f7b-847810106269" Version="V3">
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[dt_ExchangeRate]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='Currency' ReferenceName='Against SGD Currency' ReferenceIdx='0'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='1 FX' ReferenceName='Against SGD Unit' ReferenceIdx='1'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' IsDeleted='true' Name='Less than SGD 40,000.00 Bank Sell' ReferenceName='Less than SGD 40,000.00 Bank Sell' ReferenceIdx='2'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' IsDeleted='true' Name='Less than SGD 40,000.00 Bank Buy' ReferenceName='Less than SGD 40,000.00 Bank Buy' ReferenceIdx='3'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' Name='To SGD' ReferenceName='SGD 40,000.00 to SGD 100,000.00 Bank Sell' ReferenceIdx='4'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' IsDeleted='true' Name='SGD 40,000.00 to SGD 100,000.00 Bank Buy' ReferenceName='SGD 40,000.00 to SGD 100,000.00 Bank Buy' ReferenceIdx='5'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Against SGD Currency' attr='fulltext' /&gt;&lt;column name='Against SGD Unit' attr='fulltext' /&gt;&lt;column name='Less than SGD 40,000.00 Bank Sell' attr='fulltext' /&gt;&lt;column name='Less than SGD 40,000.00 Bank Buy' attr='fulltext' /&gt;&lt;column name='SGD 40,000.00 to SGD 100,000.00 Bank Sell' attr='fulltext' /&gt;&lt;column name='SGD 40,000.00 to SGD 100,000.00 Bank Buy' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="411.2,157.6" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="429bf0e4-406e-4776-9f7b-847810106269" Version="V3">
               <uix:NExtractData.Target>
                 <uix:TargetAnchorable DesignTimeRectangle="420, 319, 1413, 3665" DesignTimeScaleFactor="1.3333333730697632" FriendlyName="'Against SGDLess'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="d14b16c5-3012-46f3-9cde-e29aea9ef15a" InformativeScreenshot="f4a873c7dd04da5dd1d4cf6c68ef6aab.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Daily Price - FX Rates' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
               </uix:NExtractData.Target>
             </uix:NExtractData>
-            <ui:FilterDataTable DataTable="[dt_ExchangeRate]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="410,163" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_filtered]" SelectColumnsMode="Remove">
+            <ui:FilterDataTable DataTable="[dt_ExchangeRate]" DisplayName="Filter Data Table" FilterRowsMode="Keep" sap:VirtualizedContainerService.HintSize="411.2,162.4" sap2010:WorkflowViewState.IdRef="FilterDataTable_1" OutputDataTable="[dt_filtered]" SelectColumnsMode="Remove">
               <ui:FilterDataTable.Filters>
                 <scg:List x:TypeArguments="ui:FilterOperationArgument" Capacity="8">
                   <ui:FilterOperationArgument BooleanOperator="And" Operator="CONTAINS">
@@ -184,22 +186,22 @@
                 </scg:List>
               </ui:FilterDataTable.SelectColumns>
             </ui:FilterDataTable>
-            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_filtered]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="410,465" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[dt_filtered]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="411.2,465.6" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
               <ui:ForEachRow.Body>
                 <ActivityAction x:TypeArguments="sd:DataRow">
                   <ActivityAction.Argument>
                     <DelegateInArgument x:TypeArguments="sd:DataRow" Name="CurrentRow" />
                   </ActivityAction.Argument>
-                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="376,277" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="377.6,277.6" sap2010:WorkflowViewState.IdRef="Sequence_3">
                     <Sequence.Variables>
-                      <Variable x:TypeArguments="sd:DataTable" Name="dt_OCBC" />
+                      <Variable x:TypeArguments="sd:DataTable" Name="dt_ocbc" />
                     </Sequence.Variables>
                     <sap:WorkflowViewStateService.ViewState>
                       <scg:Dictionary x:TypeArguments="x:String, x:Object">
                         <x:Boolean x:Key="IsExpanded">True</x:Boolean>
                       </scg:Dictionary>
                     </sap:WorkflowViewStateService.ViewState>
-                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;Currency&quot;), &quot;1&quot;, CDbl(CurrentRow(&quot;To SGD&quot;)) / CDbl(CurrentRow(&quot;1 FX&quot;)), &quot;OCBC&quot;}]" DataTable="[dt_OCBC]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334,189" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
+                    <ui:AddDataRow DataRow="{x:Null}" ArrayRow="[{CurrentRow(&quot;Currency&quot;), &quot;1&quot;, CDbl(CurrentRow(&quot;To SGD&quot;)) / CDbl(CurrentRow(&quot;1 FX&quot;)), &quot;OCBC&quot;}]" DataTable="[dt_ocbc]" DisplayName="Add Data Row" sap:VirtualizedContainerService.HintSize="334.4,188" sap2010:WorkflowViewState.IdRef="AddDataRow_1" />
                   </Sequence>
                 </ActivityAction>
               </ui:ForEachRow.Body>
@@ -211,5 +213,6 @@
         <uix:TargetApp Area="-13, -13, 2762, 1754" BrowserType="Chrome" IconBase64="iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAZdEVYdFNvZnR3YXJlAEFkb2JlIEltYWdlUmVhZHlxyWU8AAADIUlEQVRYR63XS4iOURzH8RelGDODd9iIIokZprExFopYuWaIBblkSC6LUVZW2Egpt5iNYjLMAiE7WbpELEwKUZSSssG45f79PfM/nDnved73mcf869PMc87//M/T857zXApZ49XQ4misRwce4h1+mx50oxOtKNqw/w+K1eMsvsNNWMk3dKHRyuQPiiywgrGJKvmFdlRbuWzBgOm4gxl2vAWxCbJ6hoakeKUgsRnvbaD+Nlv7QWvLS7VmJ5OkBQkNlhgO1EkNxiVry0u10q8EnYvw1pLDgTqJ4bhtbXnp5yhdEzTW298xuIBwoE5iLtSvbXgDJ3EI5/Ec4Zg07cmkLmiYhh+4gonWtgrh1XiN1BVN30xcs9xytDv+bVEOznmdX7AXw+BfjVsYZ0PKBnlrUGnrdrnkWnz1OpwXaLGcpdDvr4W4GfcxPymQEvS3IKzp0wkWlTgHH6wxpsNqKnen164Cy6wrGvRrjfi1Qq0usUoHuGcdvjbL2YUJWI43UF/Zk6BvLD5ZbkynkvSAmWRjdNwEnbmuihaL1sE8aIDWx36Mh1s3Oolk4caCvouWF9OtBHeGeprtQ5MNrMZK+/8U/IHaDRuh31lXIxkTC/q2wx/r61FCrOMlDmOWFZmMA9DEfp4W42KMSmaLBH1LLDcq7QScB1bkKLQTRkAFL8N/PKfeXulb6OWVUMLnsNHzEUPgFp2O9ZuuxRTsxmOU+wm2IqzrJD/Bo6AxpOfDk6BNdAWuYxtqbL6SoE+36XCskyxC/y4Yozvg1aAtFL0CtNeh4jbcFDTGhIsvlHYCx4O80N8bUQ1GRlQlCTmCsSsQm9TpvRVbctrPoAWqQro5xdQlBYKgfR00Qaym0/swUnDQiJ9eZxZ3UWslkuBYb9DaorF8X9/HsYKG1WjrBy2wQdB23IGbiE0W0/eFxAUde3AGp3Ek4hjUr3uBHlzh+2MW8VcyBR1TkadoVuVfShUk+K/lA0k1y7+WuyBRr+dPbeBAyP5h4oIBehyfQH93hy/fp5kfDNYW1VdvpX3tU+7AfJy6oJg+zzdAX8r6LvDXSc7P80LhD266GOh9g7ArAAAAAElFTkSuQmCC" InformativeScreenshot="2e85a5fa58cb974ab178e88d18e25e95.jpg" Selector="&lt;html app='chrome.exe' title='Daily Price - FX Rates' /&gt;" Title="Daily Price - FX Rates" Url="https://www.ocbc.com/rates/daily_price_fx.html" />
       </uix:NApplicationCard.TargetApp>
     </uix:NApplicationCard>
+    <WriteLine DisplayName="Write Line" sap:VirtualizedContainerService.HintSize="507.2,90.4" sap2010:WorkflowViewState.IdRef="WriteLine_2" Text="Successfully extracted from OCBC!" />
   </Sequence>
 </Activity>
