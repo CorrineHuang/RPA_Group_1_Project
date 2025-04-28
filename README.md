@@ -28,12 +28,12 @@ It streamlines the tedious task of manually checking multiple bank websites, off
 
 ## 🛠️ Prerequisites
 - UiPath Studio installed.
-- Desktop Outlook App configured and logged in.
+- Desktop Outlook App(Hint: it's "Outlook(classic)" ,not "Outlook(new)" ) configured and logged in.
 
 ## 🚀 How to Run
 1. Open SwiftRate project folder in UiPath Studio.
 2. Update the email list in `email_list.xlsx`.
-3. Configure the email address for "Use Desktop Outlook App " Activity. You need to open and use "Outlook(Classic)" Application (Hint: it's "Outlook(classic)" ,not "Outlook(new)" ) in your computer to log in the sending email address you want to use first. Then you can choose one email address that you have already logged in within Uipath. 
+3. Configure the email address for "Use Desktop Outlook App " Activity. You need to open and use "Outlook(Classic)" Application  in your computer to log in the sending email address you want to use first. Then you can choose one email address that you have already logged in within Uipath. 
 4. Run `Main.xaml`.
 5. (Optional ) If you want to monitor more banks or more currencies, you need to configure accordingly.
 6. Done! Subscribers will receive the latest best rates.
