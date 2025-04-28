@@ -1,0 +1,91 @@
+{
+  "Workflows": [
+    {
+      "Path": null,
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [],
+      "ArgumentsSectionElementsOrder": null,
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Main.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "to_address&Sequence_1",
+        "dt_email&Sequence_1",
+        "EmailList&Sequence_1",
+        "email_txt&Sequence_1",
+        "email_txt&Sequence_4",
+        "dt_template&Sequence_1",
+        "dt_boc&Sequence_1",
+        "dt_ocbc&Sequence_1",
+        "dt_uob&Sequence_1",
+        "dt_result&Sequence_1",
+        "uniqueCurrencies&Sequence_1",
+        "dt_curr&Sequence_4",
+        "row_max&Sequence_4"
+      ],
+      "ArgumentsSectionElementsOrder": [],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Yidi.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dtRates&Sequence_1",
+        "dtFiltered&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "dt_boc"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Weiqiang.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_exchangeRate&Sequence_1",
+        "dt_filtered&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "dt_uob"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Rebecca.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_ExchangeRate&Sequence_1",
+        "dt_filtered&Sequence_1"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "dt_ocbc"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    },
+    {
+      "Path": "Bruce.xaml",
+      "SortBy": 0,
+      "VariablesSectionElementsOrder": [
+        "dt_template&Sequence_1",
+        "uniqueCurrencies&Sequence_1",
+        "dt_result&Sequence_1",
+        "maxRow&Sequence_1",
+        "dt_curr&Sequence_3",
+        "row_max&Sequence_3"
+      ],
+      "ArgumentsSectionElementsOrder": [
+        "dt_result",
+        "dt_template"
+      ],
+      "ConstantsSectionElementsOrder": [],
+      "AddedNamespaces": null
+    }
+  ]
+}
